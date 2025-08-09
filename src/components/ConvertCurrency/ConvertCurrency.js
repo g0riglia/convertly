@@ -9,8 +9,9 @@ const SHORTCUTS = [5, 10, 20, 50, 100];
 function ConvertCurrency({ currencies, setCurrencies }) {
   const [firstInput, setFirstInput] = useState("");
   const [secondInput, setSecondInput] = useState("");
-  const firstId = `first-${useId()}`;
-  const secondId = `second-${useId()}`;
+  const baseId = useId();
+  const firstId = `${currencies[0].slug}-${baseId}`;
+  const secondId = `${currencies[1].slug}-${baseId}`;
 
   function handleSwapCurrencies() {
     setCurrencies((current) => {
