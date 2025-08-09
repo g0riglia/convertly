@@ -23,8 +23,11 @@ function ConvertCurrency({ currencies, setCurrencies }) {
 
   return (
     <div>
-      <div className={styles.card}>
-        <div className={styles.currency}>
+      <div
+        className={styles.card}
+        key={`${currencies[0].slug}-${currencies[1].slug}`}
+      >
+        <div className={styles.currency} key={`first-${currencies[0].slug}`}>
           <label htmlFor={firstId}>Insert {currencies[0].name}</label>
           <div className={styles.input}>
             <input
@@ -49,7 +52,7 @@ function ConvertCurrency({ currencies, setCurrencies }) {
             alt="Two arrows going in opposite directions."
           />
         </button>
-        <div className={styles.currency}>
+        <div className={styles.currency} key={`second-${currencies[1].slug}`}>
           <label htmlFor={secondId}>Insert {currencies[1].name}</label>
           <div className={styles.input}>
             <input
